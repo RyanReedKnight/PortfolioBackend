@@ -3,6 +3,8 @@ server:
     session:
       cookie:
         same-site: "none"
+    context-path: /ryan-knight-portfolio
+
   port: 5000
 spring:
   datasource:
@@ -23,5 +25,7 @@ spring:
     console.enabled: true
 jwt:
   secret: ${JWT_SECRET}
+storage:
+  photos: ${PHOTO_STORAGE_LOCATION}
 admin-username: ${ADMIN_USERNAME}
 admin-password: ${ADMIN_PASSWORD}
