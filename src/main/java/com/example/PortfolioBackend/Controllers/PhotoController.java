@@ -25,8 +25,7 @@ import java.io.IOException;
 @RequestMapping("/photos")
 public class PhotoController {
 
-    @Value("${admin-username}")
-    String adminUsername;
+
     JWTUtility jwtUtility;
     PhotoService photoService;
 
