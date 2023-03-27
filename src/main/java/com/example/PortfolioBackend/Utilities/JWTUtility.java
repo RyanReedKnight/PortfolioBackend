@@ -22,12 +22,6 @@ public class JWTUtility {
     private String secret;
     private byte[] bytes;
 
-    @Value("${admin-username}")
-    private String adminUsername;
-
-    @Value("${admin-password}")
-    private String adminPassword;
-
     public JWTUtility() {
 
     }
@@ -45,18 +39,16 @@ public class JWTUtility {
      * */
     public String createToken(String username, String password) throws BadCredentialsException {
 
-        if(adminUsername.equals(username) && adminPassword.equals(password)) {
-            JwtBuilder tokenBuilder = Jwts.builder()
-                    .setId(username)
-                    .setSubject(username)
-                    .setIssuer("Portfolio")
-                    .claim("username", username)
-                    .setIssuedAt((new Date(System.currentTimeMillis())))
-                    .setExpiration(new Date(System.currentTimeMillis() + 600 * 1000))
-                    .signWith(new SecretKeySpec(getBytes(), "HmacSHA256"));
-            return tokenBuilder.compact();
-        }
-        throw new BadCredentialsException();
+        JwtBuilder tokenBuilder = Jwts.builder()
+                .setId(username)
+                .setSubject(username)
+                .setIssuer("Portfolio")
+                .claim("username", username)
+                .setIssuedAt((new Date(System.currentTimeMillis())))
+                .setExpiration(new Date(System.currentTimeMillis() + 600 * 1000))
+                .signWith(new SecretKeySpec(getBytes(), "HmacSHA256"));
+        return tokenBuilder.compact();
+
     }
 
     /**
