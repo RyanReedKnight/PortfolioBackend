@@ -36,21 +36,5 @@ public class PhotoController {
         this.photoService = photoService;
     }
 
-    @PostMapping
-    ResponseEntity<?> postPhoto(@RequestParam("imageFile") MultipartFile image/*, @RequestBody Photo photoInfo*/) throws BadTokenException {
-        String token = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
-                .getRequest().getHeader("Authorization");
 
-        if (jwtUtility.parseToken(token).equals(adminUsername)) {
-
-            try {
-                photoService.savePhotoToDrive(image/*photoInfo*/);
-            } catch (IOException e) {
-                return ResponseEntity.status(500).build();
-            }
-            return ResponseEntity.ok(null);
-        } else {
-            return ResponseEntity.status(401).build();
-        }
-    }
 }
