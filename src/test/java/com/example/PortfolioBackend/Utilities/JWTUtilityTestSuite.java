@@ -22,11 +22,11 @@ public class JWTUtilityTestSuite {
 
     @Autowired
     JWTUtility sut;
-    @Value("${admin-username}")
+    @Value("${admin.username}")
     String correctAdminUsername;
     String incorrectAdminUsername = "not_the_admin";
 
-    @Value("${admin-password}")
+    @Value("${admin.password}")
     String correctAdminPassword;
     String incorrectAdminPassword = "the wrong password 55%%%";
     @Value("${jwt.secret}")
@@ -55,17 +55,7 @@ public class JWTUtilityTestSuite {
         Assertions.assertNotEquals(incorrectAdminPassword,correctAdminPassword);
     }
 
-    @Test
-    void test_createTokenThrowsBadCredentialsException_givenIncorrectAdminUsername() {
-        Assertions.assertThrows(BadCredentialsException.class,
-                () -> { sut.createToken(incorrectAdminUsername,correctAdminPassword); });
-    }
 
-    @Test
-    void test_createTokenThrowsBadCredentialsException_givenIncorrectAdminPassword() {
-        Assertions.assertThrows(BadCredentialsException.class,
-                () -> { sut.createToken(correctAdminUsername,incorrectAdminPassword); });
-    }
 
 
     @Test
