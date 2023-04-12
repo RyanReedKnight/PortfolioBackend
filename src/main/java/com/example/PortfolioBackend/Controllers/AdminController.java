@@ -1,12 +1,10 @@
 package com.example.PortfolioBackend.Controllers;
 
 import com.example.PortfolioBackend.DTOs.AdminCredentials;
-import com.example.PortfolioBackend.Exceptions.BadCredentialsException;
 import com.example.PortfolioBackend.Services.AdminService;
 import com.example.PortfolioBackend.Utilities.JWTUtility;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(exposedHeaders = "Authorization")
