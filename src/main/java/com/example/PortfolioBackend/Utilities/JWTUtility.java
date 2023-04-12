@@ -1,5 +1,6 @@
 package com.example.PortfolioBackend.Utilities;
 
+import com.example.PortfolioBackend.DTOs.AdminCredentials;
 import com.example.PortfolioBackend.Exceptions.BadCredentialsException;
 import com.example.PortfolioBackend.Exceptions.BadTokenException;
 import io.jsonwebtoken.Claims;
@@ -34,10 +35,9 @@ public class JWTUtility {
     }
 
     /***
-     * @throws BadCredentialsException if username or password do not match the admin username and password.
-     * @return token containing the username if credentials are valid.
+     * @return token containing the username
      * */
-    public String createToken(String username, String password) throws BadCredentialsException {
+    public String createToken(String username, String password) {
 
         JwtBuilder tokenBuilder = Jwts.builder()
                 .setId(username)
@@ -49,6 +49,10 @@ public class JWTUtility {
                 .signWith(new SecretKeySpec(getBytes(), "HmacSHA256"));
         return tokenBuilder.compact();
 
+    }
+
+    public String createToken(AdminCredentials adminCredentials) {
+        return createToken(adminCredentials.getUsername(),adminCredentials.getPassword());
     }
 
     /**

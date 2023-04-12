@@ -15,6 +15,10 @@ spring:
     console.enabled: true
 jwt:
   secret: FJFIOGHDFHGdjfkdjfdkjf495834095834
-admin-username: dummy-admin-name
-admin-password: bad-password-for-tests1@
+admin:
+  username: dummy-admin-name
+  password: bad-password-for-tests1@
+storage:
+  photos: ${TEST_STORAGE_LOCATION}
+
 
