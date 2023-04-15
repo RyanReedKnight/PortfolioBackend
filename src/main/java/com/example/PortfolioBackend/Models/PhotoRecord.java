@@ -1,6 +1,6 @@
 package com.example.PortfolioBackend.Models;
 
-import com.example.PortfolioBackend.DTOs.PhotoIncoming;
+import com.example.PortfolioBackend.DTOs.Photo;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "photos")
-public class Photo {
+public class PhotoRecord {
 
     // ID to serve as the photo's unique identifier.
     @Id
@@ -31,10 +31,10 @@ public class Photo {
     @Column(name="description")
     private String description;
 
-    public Photo(PhotoIncoming photoIncoming) {
+    public PhotoRecord(Photo photo) {
         // ID to be defined by database
-        this.title = photoIncoming.getTitle();
-        this.location = photoIncoming.getLocation();
+        this.title = photo.getTitle();
+        this.location = photo.getLocation();
     }
 
 }

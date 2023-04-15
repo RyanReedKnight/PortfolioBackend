@@ -6,7 +6,13 @@ server:
     context-path: /ryan-knight-portfolio
 
   port: 5000
+
+
 spring:
+  mvc:
+    hidden-method:
+      filter:
+        enabled=true:
   datasource:
     platform: postgres
     url: ${RDS_URL}
