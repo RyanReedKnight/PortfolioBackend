@@ -35,6 +35,7 @@ public class PhotoRecord {
         // ID to be defined by database
         this.title = photo.getTitle();
         this.location = photo.getLocation();
+        this.description = photo.getDescription();
     }
 
 }
