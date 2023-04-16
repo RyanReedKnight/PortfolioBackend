@@ -2,10 +2,13 @@ package com.example.PortfolioBackend.Controllers;
 
 import com.example.PortfolioBackend.DTOs.Photo;
 import com.example.PortfolioBackend.Exceptions.PrimaryKeyTakenException;
+import com.example.PortfolioBackend.Exceptions.RecordDoesNotExistException;
 import com.example.PortfolioBackend.Services.AdminService;
 import com.example.PortfolioBackend.Services.PhotoService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,8 +37,8 @@ public class PhotoController {
 
     @PostMapping
     public String postPhoto(@RequestParam("photoFile") MultipartFile multipartFile, @RequestParam("title") String title,
-                            @RequestParam("location") String location, @RequestParam String description,
-                            HttpServletResponse resp) {
+                                    @RequestParam("location") String location, @RequestParam String description,
+                                    HttpServletResponse resp) {
 
         String token = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
                 .getRequest().getHeader("Authorization");
@@ -43,8 +46,9 @@ public class PhotoController {
         // Confirm request is authorized. DO NOT REMOVE THIS
         // OR REARRANGE ANYTHING THAT COMES AFTER IT WITH RESPECT TO IT !!!
         if (!adminService.authorizedRequest(token)) {
-            System.out.println("UNAUTHORIZED REQUEST MADE");
-            resp.setStatus(401);
+            System.out.println("com.example.PortfolioBackend.Controllers.PhotoController.postPhoto" +
+                    " \"UNAUTHORIZED REQUEST MADE\"");
+            resp.setStatus(HttpStatus.FORBIDDEN.value());
             return "YOUR NOT AUTHORIZED TO POST PHOTOS!";
         }
 
@@ -53,18 +57,28 @@ public class PhotoController {
         try {
             photoService.storeIncomingPhoto(photo);
         } catch (PrimaryKeyTakenException e) {
-            System.out.println("BAD PRIMARY KEY " + photo.getTitle() + " is already being used.");
-            resp.setStatus(201);
+            System.out.println("com.example.PortfolioBackend.Controllers.PhotoController.postPhoto " +
+                    "\"BAD PRIMARY KEY " + photo.getTitle() + " is already being used.\"");
+            resp.setStatus(HttpStatus.ALREADY_REPORTED.value());
             return photo.getTitle() + " is already in use.";
         } catch (IOException e) {
-            System.out.println("IO EXCEPTION");
-            resp.setStatus(500);
+            System.out.println("com.example.PortfolioBackend.Controllers.PhotoController.postPhoto \"IO EXCEPTION\"");
+            resp.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             return "Bad server";
         }
 
-        System.out.println(photo + " successfully saved.");
-        resp.setStatus(201);
+        System.out.println("com.example.PortfolioBackend.Controllers.PhotoController.postPhoto \"" +
+                photo.getTitle() + " successfully saved.\"");
+        resp.setStatus(HttpStatus.OK.value());
         return "Success";
     }
 
+    String deletePhoto(@RequestParam("photoTitle") String photoTitle) {
+        try {
+            photoService.deletePhoto(photoTitle);
+            return photoTitle + " SUCCESSFULLY DELETED.";
+        } catch (RecordDoesNotExistException e) {
+            return "ATTEMPTED TO DELETE NON-EXISTENT PHOTO.";
+        }
+    }
 }
