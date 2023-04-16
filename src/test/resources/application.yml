@@ -19,6 +19,6 @@ admin:
   username: dummy-admin-name
   password: bad-password-for-tests1@
 storage:
-  photos: test-storage-dir
+  photos: ${TEST_PHOTO_STORAGE_DIR}
 
 
