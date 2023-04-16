@@ -116,4 +116,36 @@ public class PhotoService {
             photoRecord.getDescription(), photoFile);
     }
 
+    /**
+     * @param fileTitle - name of file to be deleted.
+     * @return true if file is deleted, otherwise false.
+     * */
+    public boolean deleteImageFileFromDrive(String fileTitle) {
+        File fileToDelete = new File(photoStorageLocation + "/" + fileTitle);
+        return fileToDelete.delete();
+    }
+
+    /**
+     * @param photoTitle - primary key associated with record of photo.
+     * @throws RecordDoesNotExistException if record of photo associated with photoTitle does not exist.
+     * deletes Record associated with photoTitle.
+     * */
+    public void deletePhotoRecord(String photoTitle) throws RecordDoesNotExistException {
+        if (!photoRepository.existsById(photoTitle)){
+            throw new RecordDoesNotExistException(photoTitle);
+        }
+        photoRepository.deleteById(photoTitle);
+    }
+
+    /**
+     * @param photoTitle - primary key associated with record of photo.
+     * @throws RecordDoesNotExistException if record of photo associated with photoTitle does not exist.
+     * Deletes record associated with photoTitle from table, if this is allowed to occur without
+     * a RecordDoesNotExistException being thrown, deletes file associated with photoTitle from storage location.
+     * */
+    public void deletePhoto(String photoTitle) throws RecordDoesNotExistException {
+        deletePhotoRecord(photoTitle);
+        deleteImageFileFromDrive(photoTitle);
+    }
+
 }
