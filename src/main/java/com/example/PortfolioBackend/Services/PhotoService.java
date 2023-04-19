@@ -85,6 +85,11 @@ public class PhotoService {
         photoRepository.save(new PhotoRecord(photo));
     }
 
+    /**
+     * @throws RecordDoesNotExistException if there is no corresponding record for the photo in the PhotoRecords table.
+     * @param photoTitle key to fetch the photo.
+     * @return byte array for the photo.
+     * */
     public byte[] fetchPhotoBytesFromDrive(String photoTitle) throws RecordDoesNotExistException,
             IOException {
 
