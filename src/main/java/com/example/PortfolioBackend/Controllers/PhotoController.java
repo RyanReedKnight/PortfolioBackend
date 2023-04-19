@@ -35,6 +35,7 @@ public class PhotoController {
         this.adminService = adminService;
     }
 
+
     @PostMapping
     public String postPhoto(@RequestParam("photoFile") MultipartFile multipartFile, @RequestParam("title") String title,
                                     @RequestParam("location") String location, @RequestParam String description,
@@ -73,7 +74,22 @@ public class PhotoController {
         return "Success";
     }
 
-    String deletePhoto(@RequestParam("photoTitle") String photoTitle) {
+    @DeleteMapping("/delete/{photo-title}")
+    String deletePhoto(@PathVariable("photo-title") String photoTitle, HttpServletResponse resp) {
+        String token = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+                .getRequest().getHeader("Authorization");
+
+        // Confirm request is authorized. DO NOT REMOVE THIS
+        // OR REARRANGE ANYTHING THAT COMES AFTER IT WITH RESPECT TO IT !!!
+        if (!adminService.authorizedRequest(token)) {
+            System.out.println("com.example.PortfolioBackend.Controllers.PhotoController.deletePhoto" +
+                    " \"UNAUTHORIZED REQUEST MADE\"");
+            resp.setStatus(HttpStatus.FORBIDDEN.value());
+            return "YOUR NOT AUTHORIZED TO POST PHOTOS!";
+        }
+
+        System.out.println("ATTEMPTING TO DELETE " + photoTitle);
+
         try {
             photoService.deletePhoto(photoTitle);
             return photoTitle + " SUCCESSFULLY DELETED.";
