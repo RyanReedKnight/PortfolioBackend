@@ -105,4 +105,20 @@ public class PhotoController {
         System.out.println("FETCHED PHOTO RECORDS");
         return photoService.fetchPhotoRecords();
     }
+
+    @GetMapping("/files/{photo-title}")
+    byte[] getPhotoBytes(@PathVariable("photo-title") String photoTitle, HttpServletResponse resp) {
+        System.out.println("ATTEMPTING TO GET BYTES FOR "+ photoTitle);
+        try {
+            return photoService.fetchPhotoBytesFromDrive(photoTitle);
+        } catch (RecordDoesNotExistException e) {
+            e.printStackTrace();
+            resp.setStatus(HttpStatus.NO_CONTENT.value());
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            resp.setStatus(HttpStatus.SERVICE_UNAVAILABLE.value());
+            return null;
+        }
+    }
 }
