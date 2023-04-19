@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.swing.text.DefaultStyledDocument.ElementSpec.ContentType;
 
@@ -146,6 +148,13 @@ public class PhotoService {
     public void deletePhoto(String photoTitle) throws RecordDoesNotExistException {
         deletePhotoRecord(photoTitle);
         deleteImageFileFromDrive(photoTitle);
+    }
+
+    /**
+     * @return a list of all PhotoRecords in database.
+     * */
+    public List<PhotoRecord> fetchPhotoRecords() {
+        return (ArrayList<PhotoRecord>)photoRepository.findAll();
     }
 
 }

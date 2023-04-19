@@ -3,6 +3,7 @@ package com.example.PortfolioBackend.Controllers;
 import com.example.PortfolioBackend.DTOs.Photo;
 import com.example.PortfolioBackend.Exceptions.PrimaryKeyTakenException;
 import com.example.PortfolioBackend.Exceptions.RecordDoesNotExistException;
+import com.example.PortfolioBackend.Models.PhotoRecord;
 import com.example.PortfolioBackend.Services.AdminService;
 import com.example.PortfolioBackend.Services.PhotoService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @CrossOrigin(exposedHeaders = "Authorization")
 @RestController
@@ -96,5 +98,11 @@ public class PhotoController {
         } catch (RecordDoesNotExistException e) {
             return "ATTEMPTED TO DELETE NON-EXISTENT PHOTO.";
         }
+    }
+
+    @GetMapping("/records")
+    List<PhotoRecord> getPhotoRecords(HttpServletResponse resp) {
+        System.out.println("FETCHED PHOTO RECORDS");
+        return photoService.fetchPhotoRecords();
     }
 }
