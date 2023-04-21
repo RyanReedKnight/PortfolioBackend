@@ -7,7 +7,8 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-22.04
+  name: portfolio-server 
+  vmImage: portfolio-server
 
 steps:
 - task: Maven@3
