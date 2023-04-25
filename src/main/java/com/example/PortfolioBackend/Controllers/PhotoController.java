@@ -101,12 +101,14 @@ public class PhotoController {
         }
     }
 
+    @CrossOrigin("${origins.client}")
     @GetMapping("/records")
     List<PhotoRecord> getPhotoRecords(HttpServletResponse resp) {
         System.out.println("FETCHED PHOTO RECORDS");
         return photoService.fetchPhotoRecords();
     }
 
+    @CrossOrigin("${origins.client}")
     @GetMapping("/files/{photo-title}")
     byte[] getPhotoBytes(@PathVariable("photo-title") String photoTitle, HttpServletResponse resp) {
         System.out.println("ATTEMPTING TO GET BYTES FOR "+ photoTitle);
