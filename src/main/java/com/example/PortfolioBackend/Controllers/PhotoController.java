@@ -37,7 +37,7 @@ public class PhotoController {
         this.adminService = adminService;
     }
 
-
+    @CrossOrigin("${origins.admin-portal}")
     @PostMapping
     public String postPhoto(@RequestParam("photoFile") MultipartFile multipartFile, @RequestParam("title") String title,
                                     @RequestParam("location") String location, @RequestParam String description,
@@ -76,6 +76,7 @@ public class PhotoController {
         return "Success";
     }
 
+    @CrossOrigin("${origins.admin-portal}")
     @DeleteMapping("/delete/{photo-title}")
     String deletePhoto(@PathVariable("photo-title") String photoTitle, HttpServletResponse resp) {
         String token = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())

@@ -37,3 +37,5 @@ storage:
 admin:
   username: ${ADMIN_USERNAME}
   password: ${ADMIN_PASSWORD}
+origins:
+  admin-portal: ${ADMIN_PORTAL}
