@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(exposedHeaders = "Authorization")
+@CrossOrigin(exposedHeaders = "Authorization", origins={"${origins.admin-portal}"})
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -25,6 +25,7 @@ public class AdminController {
     /**
      * Returns token to client if given valid credentials.
      * */
+    //@CrossOrigin("${origins.admin-portal}")
     @PostMapping("/login")
     public String loginHandler(@RequestBody AdminCredentials adminCredentials, HttpServletResponse resp) {
         // If credentials are invalid, return a 401 error.

@@ -3,6 +3,7 @@ package com.example.PortfolioBackend.Controllers;
 import com.example.PortfolioBackend.DTOs.Photo;
 import com.example.PortfolioBackend.Exceptions.PrimaryKeyTakenException;
 import com.example.PortfolioBackend.Exceptions.RecordDoesNotExistException;
+import com.example.PortfolioBackend.Models.PhotoRecord;
 import com.example.PortfolioBackend.Services.AdminService;
 import com.example.PortfolioBackend.Services.PhotoService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @CrossOrigin(exposedHeaders = "Authorization")
 @RestController
@@ -35,7 +37,7 @@ public class PhotoController {
         this.adminService = adminService;
     }
 
-
+    @CrossOrigin("${origins.admin-portal}")
     @PostMapping
     public String postPhoto(@RequestParam("photoFile") MultipartFile multipartFile, @RequestParam("title") String title,
                                     @RequestParam("location") String location, @RequestParam String description,
@@ -74,6 +76,7 @@ public class PhotoController {
         return "Success";
     }
 
+    @CrossOrigin("${origins.admin-portal}")
     @DeleteMapping("/delete/{photo-title}")
     String deletePhoto(@PathVariable("photo-title") String photoTitle, HttpServletResponse resp) {
         String token = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
@@ -95,6 +98,30 @@ public class PhotoController {
             return photoTitle + " SUCCESSFULLY DELETED.";
         } catch (RecordDoesNotExistException e) {
             return "ATTEMPTED TO DELETE NON-EXISTENT PHOTO.";
+        }
+    }
+
+    @CrossOrigin("${origins.client}")
+    @GetMapping("/records")
+    List<PhotoRecord> getPhotoRecords(HttpServletResponse resp) {
+        System.out.println("FETCHED PHOTO RECORDS");
+        return photoService.fetchPhotoRecords();
+    }
+
+    @CrossOrigin("${origins.client}")
+    @GetMapping("/files/{photo-title}")
+    byte[] getPhotoBytes(@PathVariable("photo-title") String photoTitle, HttpServletResponse resp) {
+        System.out.println("ATTEMPTING TO GET BYTES FOR "+ photoTitle);
+        try {
+            return photoService.fetchPhotoBytesFromDrive(photoTitle);
+        } catch (RecordDoesNotExistException e) {
+            e.printStackTrace();
+            resp.setStatus(HttpStatus.NO_CONTENT.value());
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            resp.setStatus(HttpStatus.SERVICE_UNAVAILABLE.value());
+            return null;
         }
     }
 }
