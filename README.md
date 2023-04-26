@@ -37,7 +37,7 @@ run the command
 -DADMIN_PASSWORD=$ADMIN_PASSWORD \
 -DADMIN_PORTAL=$ADMIN_PORTAL \
 -DCLIENT=$CLIENT \
--jar ~/PortfolioBackend-0.0.1-SNAPSHOT.jar &
+-jar ~/PortfolioBackend-<version>-SNAPSHOT.jar &
 ``` 
 to start the application.
 
