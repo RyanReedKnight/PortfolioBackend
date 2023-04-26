@@ -28,7 +28,16 @@ of Debian 11 and Ubuntu 20.04 were too old, however Ubuntu 22.04 worked as expec
    Once there is a jar file, the file is on the host device, and the previously mentioned environment variables have been defined, 
 run the command 
 ```
-    nohup java -DRDS_URL=${RDS_URL} -DRDS_USERNAME=${RDS_USERNAME} ... -jar Package.jar
+ nohup java -DRDS_USERNAME=$RDS_USERNAME \
+-DRDS_PASSWORD=$RDS_PASSWORD \
+-DRDS_URL=$RDS_URL \
+-DPHOTO_STORAGE_LOCATION=$PHOTO_STORAGE_LOCATION \
+-DJWT_SECRET=$JWT_SECRET \
+-DADMIN_USERNAME=$ADMIN_USERNAME \
+-DADMIN_PASSWORD=$ADMIN_PASSWORD \
+-DADMIN_PORTAL=$ADMIN_PORTAL \
+-DCLIENT=$CLIENT \
+-jar ~/PortfolioBackend-0.0.1-SNAPSHOT.jar &
 ``` 
 to start the application.
 
