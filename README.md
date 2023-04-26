@@ -22,7 +22,7 @@ These are all defined with the following environment variables.
   * CLIENT - location where the main webpage is hosted.
 
  The host device must have the Java Runtime Environment for Java 17, and the device that builds the package must have maven installed.
-The package is built using the command "mvn clean package," note that on if the version of maven is too old, it will not build for Java 17. 
+The package is built using the command "mvn clean package," note that if the version of maven is too old, it will not build for Java 17. 
 When attempting to build in a Linux environment, I found that the maven package availible in the distribution repositories 
 of Debian 11 and Ubuntu 20.04 were too old, however Ubuntu 22.04 worked as expected. 
    Once there is a jar file, the file is on the host device, and the previously mentioned environment variables have been defined, 
