@@ -29,7 +29,7 @@ run the command "nohup java -DRDS_URL=${RDS_URL} -DRDS_USERNAME=${RDS_USERNAME} 
 
 # Deployed site
   A deployment of this site can be seen <a href="http://photos-and-such.s3-website-us-west-2.amazonaws.com/">here.</a>
-Both the admin portal and the main page or React applications statically hosted in AWS S3 buckets. The backend is run out of an EC2 instance, 
+Both the admin portal and the main page are React applications statically hosted in AWS S3 buckets. The backend is run out of an EC2 instance, 
 has an EBS drive mounted for the photos, and is connected to an AWS RDS instance for the database.
  
 # Future work
