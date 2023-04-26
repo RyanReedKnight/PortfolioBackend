@@ -6,7 +6,7 @@
  <p> For each photo that is saved, the file bytes are saved to a designated directory, and other information pertaining to the photo (title, description, location) are saved in a PostgreSQL database.<p>
 
 # Deployment Instructions
- <p> The application must be configured with a front end or front ends to make requests to upload and view photos (I have these separate), a PostgreSQL database, a storage location for the photos, a JWT secret, and an admin username and password. These are all defined with the following environment variables.  
+ <p> The application must be configured with a front end or front ends to make requests to upload and view photos (I have these separate), a PostgreSQL database, a storage location for the photos, a JWT secret, and an admin username and password. These are all defined with the following environment variables.</p>  
   <ul>
     <li> RDS_URL - the url of the PostgreSQL database.</li>
     <li> RDS_USERNAME - the username associated with the database </li>
@@ -18,7 +18,7 @@
     <li> ADMIN_PORTAL - location where the admin portal is hosted. </li>
     <li> CLIENT - location where the main webpage is hosted. </li>
   <ul>
-  The host device must have the Java Runtime Environment for Java 17, and the device that builds the package must have maven installed.
+<p>  The host device must have the Java Runtime Environment for Java 17, and the device that builds the package must have maven installed.
 The package is built using the command "mvn clean package," note that on if the version of maven is too old, it will not build for Java 17. 
 When attempting to build in a Linux environment, I found that the maven package availible in the distribution repositories 
 of Debian 11 and Ubuntu 20.04 were too old, however Ubuntu 22.04 worked as expected. 
