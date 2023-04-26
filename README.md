@@ -3,7 +3,8 @@
    via <a href="https://github.com/RyanReedKnight/portfolio-admin">the portfolio admin page</a>, and can be viewed by anyone
    via <a href="https://github.com/RyanReedKnight/Portfolio">the portfolio webpage.</a></p>
   
- <p> For each photo that is saved, the file bytes are saved to a designated directory, and other information pertaining to the photo (title, description, location) are saved in a PostgreSQL database.<p>
+ <p> For each photo that is saved, the file bytes are saved to a designated directory, and other information pertaining to the photo 
+ (title, description, location) are saved in a PostgreSQL database.<p>
 
 # Deployment Instructions
  <p> The application must be configured with a front end or front ends to make requests to upload and view photos (I have these separate), 
