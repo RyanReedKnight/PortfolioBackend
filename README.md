@@ -6,7 +6,9 @@
  <p> For each photo that is saved, the file bytes are saved to a designated directory, and other information pertaining to the photo (title, description, location) are saved in a PostgreSQL database.<p>
 
 # Deployment Instructions
- <p> The application must be configured with a front end or front ends to make requests to upload and view photos (I have these separate), a PostgreSQL database, a storage location for the photos, a JWT secret, and an admin username and password. These are all defined with the following environment variables.</p>  
+ <p> The application must be configured with a front end or front ends to make requests to upload and view photos (I have these separate), 
+a PostgreSQL database, a storage location for the photos, a JWT secret, and an admin username and password. 
+These are all defined with the following environment variables.</p>  
   <ul>
     <li> RDS_URL - the url of the PostgreSQL database.</li>
     <li> RDS_USERNAME - the username associated with the database </li>
