@@ -26,7 +26,7 @@ The package is built using the command "mvn clean package," note that if the ver
 When attempting to build in a Linux environment, I found that the maven package availible in the distribution repositories 
 of Debian 11 and Ubuntu 20.04 were too old, however Ubuntu 22.04 worked as expected. 
    Once there is a jar file, the file is on the host device, and the previously mentioned environment variables have been defined, 
-run the command 
+run the following command to start the application. 
 ```
  nohup java -DRDS_USERNAME=$RDS_USERNAME \
 -DRDS_PASSWORD=$RDS_PASSWORD \
@@ -39,14 +39,11 @@ run the command
 -DCLIENT=$CLIENT \
 -jar ~/PortfolioBackend-<version>-SNAPSHOT.jar &
 ``` 
-to start the application.
-
 # Deployed site
   A deployment of this site can be seen <a href="http://photos-and-such.s3-website-us-west-2.amazonaws.com/">here.</a>
 Both the admin portal and the main page are React applications statically hosted in AWS S3 buckets. The backend is run out of an EC2 instance, 
 has an EBS drive mounted for the photos, and is connected to an AWS RDS instance for the database.
  
 # Future work
-  As of now most of the work I have planed are features and aesthetic improvments on the front end, I would like to add photo albums, 
-and enable users to filter by album. I may rewrite the application in another framework as a means by which to practice using said framework. 
-I also want to set up a code pipeline for this site for convinience's sake
+  * Incorporate logging into the application.
+  * Add an album feature where photos are assigned an album which users can filter by.
