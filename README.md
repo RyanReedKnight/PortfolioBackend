@@ -37,7 +37,7 @@ run the following command to start the application.
 -DADMIN_PASSWORD=$ADMIN_PASSWORD \
 -DADMIN_PORTAL=$ADMIN_PORTAL \
 -DCLIENT=$CLIENT \
--jar ~/PortfolioBackend-<version>-SNAPSHOT.jar &
+-jar ./PortfolioBackend-*-SNAPSHOT.jar &
 ``` 
 # Deployed site
   A deployment of this site can be seen <a href="http://photos-and-such.s3-website-us-west-2.amazonaws.com/">here.</a>
