@@ -47,3 +47,7 @@ has an EBS drive mounted for the photos, and is connected to an AWS RDS instance
 # Future work
   * Incorporate logging into the application.
   * Add an album feature where photos are assigned an album which users can filter by.
+
+# Links
+  * <a href="https://github.com/RyanReedKnight/Portfolio">Application front-end repository</a>
+  * <a href="https://github.com/RyanReedKnight/portfolio-admin">Portfolio admin page repository</a>
