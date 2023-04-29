@@ -1,4 +1,4 @@
-# PortfolioBackend
+# photo-portfolio-backend
 This is a Spring Boot 3 backend for a website that alows the owner to share their photos. Photos are meant to be uploaded by the authorized user 
 via <a href="https://github.com/RyanReedKnight/portfolio-admin">the portfolio admin page</a>, and can be viewed by anyone
 via <a href="https://github.com/RyanReedKnight/Portfolio">the portfolio webpage.</a>
