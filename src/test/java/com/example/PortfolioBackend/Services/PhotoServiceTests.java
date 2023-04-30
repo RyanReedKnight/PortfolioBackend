@@ -24,7 +24,7 @@ import java.nio.file.Paths;
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.yml")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class PhotoServiceTestSuite {
+public class PhotoServiceTests {
 
     @Value("${storage.photos}")
     private String testingStorage;

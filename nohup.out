@@ -1,0 +1,38 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.4)
+
+2023-04-27T07:57:33.560-07:00  INFO 4656 --- [           main] c.e.P.PortfolioBackendApplication        : Starting PortfolioBackendApplication v0.0.1-SNAPSHOT using Java 17.0.6 with PID 4656 (/home/knight/Development/PortfolioBackend/target/PortfolioBackend-0.0.1-SNAPSHOT.jar started by knight in /home/knight/Development/PortfolioBackend)
+2023-04-27T07:57:33.563-07:00  INFO 4656 --- [           main] c.e.P.PortfolioBackendApplication        : No active profile set, falling back to 1 default profile: "default"
+2023-04-27T07:57:34.095-07:00  INFO 4656 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-04-27T07:57:34.096-07:00  INFO 4656 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-04-27T07:57:34.119-07:00  INFO 4656 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.PortfolioBackend.Repositories.PhotoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-04-27T07:57:34.119-07:00  INFO 4656 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JDBC repository interfaces.
+2023-04-27T07:57:34.127-07:00  INFO 4656 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-04-27T07:57:34.128-07:00  INFO 4656 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-27T07:57:34.147-07:00  INFO 4656 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 1 JPA repository interfaces.
+2023-04-27T07:57:34.561-07:00  INFO 4656 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 5000 (http)
+2023-04-27T07:57:34.569-07:00  INFO 4656 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-27T07:57:34.569-07:00  INFO 4656 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-04-27T07:57:34.608-07:00  INFO 4656 --- [           main] o.a.c.c.C.[.[.[/ryan-knight-portfolio]   : Initializing Spring embedded WebApplicationContext
+2023-04-27T07:57:34.609-07:00  INFO 4656 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 996 ms
+2023-04-27T07:57:34.631-07:00  INFO 4656 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-27T07:57:34.767-07:00  INFO 4656 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@21aa6d6c
+2023-04-27T07:57:34.769-07:00  INFO 4656 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-27T07:57:34.778-07:00  INFO 4656 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/postgres'
+2023-04-27T07:57:34.878-07:00  INFO 4656 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27T07:57:34.910-07:00  INFO 4656 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-27T07:57:35.138-07:00  INFO 4656 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-04-27T07:57:35.581-07:00  INFO 4656 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27T07:57:35.587-07:00  INFO 4656 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27T07:57:35.787-07:00  WARN 4656 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-27T07:57:36.067-07:00  INFO 4656 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 5000 (http) with context path '/ryan-knight-portfolio'
+2023-04-27T07:57:36.075-07:00  INFO 4656 --- [           main] c.e.P.PortfolioBackendApplication        : Started PortfolioBackendApplication in 2.847 seconds (process running for 3.188)
+2023-04-27T07:58:48.827-07:00  INFO 4656 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27T07:58:48.828-07:00  INFO 4656 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-27T07:58:48.830-07:00  INFO 4656 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
