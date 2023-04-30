@@ -4,7 +4,7 @@ phases:
   install:
     runtime-version:
       java: coretto17
-      docker: latest
+      docker: 19
   pre_build:
     commands:
       - docker pull postgres:latest 
