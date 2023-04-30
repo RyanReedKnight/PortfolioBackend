@@ -19,6 +19,8 @@ admin:
   username: dummy-admin-name
   password: bad-password-for-tests1@
 storage:
-  photos: ${TEST_PHOTO_STORAGE_DIR}
+  photos: .test_storage
 
-
+origins:
+  admin-portal: "portal"
+  client: "client"
