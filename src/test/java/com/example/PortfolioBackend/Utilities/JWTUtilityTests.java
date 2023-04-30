@@ -18,7 +18,7 @@ import java.lang.reflect.Field;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.yml")
-public class JWTUtilityTestSuite {
+public class JWTUtilityTests {
 
     @Autowired
     JWTUtility sut;

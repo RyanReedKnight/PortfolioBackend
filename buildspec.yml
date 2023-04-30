@@ -1,0 +1,26 @@
+version: 0.1
+
+phases:
+  install:
+    runtime-version:
+      java: coretto17
+      docker: latest
+  pre_build:
+    commands:
+      - docker pull postgres:latest 
+  build:
+    commands:
+      - docker run \
+        --name postgres \
+        -p 5432:5432 \
+        -e POSTGRES_PASSWORD=$RDS_PASSWORD \
+        -e POSTGRES_USER=$RDS_USERNAME \
+        -d postgres
+      - mvn package
+  post_build:
+    commands:
+      - mv target/*.jar app.jar
+artifacts:
+  files:
+    - app.jar
+

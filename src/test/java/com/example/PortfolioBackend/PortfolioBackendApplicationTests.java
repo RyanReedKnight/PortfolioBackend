@@ -10,6 +10,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application.yml")
 class PortfolioBackendApplicationTests {
-
+	
+	@Test
+	void contextLoads(){}
 
 }
