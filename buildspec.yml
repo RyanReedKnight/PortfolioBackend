@@ -1,9 +1,9 @@
-version: 0.1
+version: 0.2
 
 phases:
   install:
     runtime-version:
-      java: coretto17
+      java: correto-17
       docker: 19
   pre_build:
     commands:
