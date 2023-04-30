@@ -52,4 +52,4 @@ has an EBS drive mounted for the photos, and is connected to an AWS RDS instance
 # Links
   * <a href="https://github.com/RyanReedKnight/Portfolio">Application front-end repository</a>
   * <a href="https://github.com/RyanReedKnight/portfolio-admin">Portfolio admin page repository</a>
-  * <a href="http://photos-and-such.s3-website-us-west-2.amazonaws.com/">The website</a>
+  * <a href="http://ec2-35-89-191-219.us-west-2.compute.amazonaws.com/">The website</a>
