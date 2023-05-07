@@ -41,7 +41,7 @@ run the following command to start the application.
 ``` 
 # Deployed site
   The deployed site can be seen <a href="http://ec2-35-89-191-219.us-west-2.compute.amazonaws.com/">here.</a>
-Both the admin portal is hosted in an AWS S3 bucket, while the main webpage 
+The admin portal is hosted in an AWS S3 bucket, while the main webpage 
 is hosted on an EC2 instance and served by Nginx. The backend is run out of another EC2 instance, 
 has an EBS drive mounted for the photos, and is connected to an AWS RDS instance for the database.
  
