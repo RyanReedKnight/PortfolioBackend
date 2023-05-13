@@ -40,7 +40,7 @@ run the following command to start the application.
 -jar ./PortfolioBackend-*-SNAPSHOT.jar &
 ``` 
 # Deployed site
-  NOTE - I AM CURRENTLY ADRESSING AN ISSUE THAT CAME UP WITH NGINX WHILE UPDATING THE IP ADDRESSES OF THE VIRTUAL MACHINE INSTANCES. The deployed site can be seen <a href="http://ryan-knights-photo-website.com/">here.</a>
+  The deployed site can be seen <a href="http://ryan-knights-photo-website.com/">here.</a>
 The admin portal is hosted in an AWS S3 bucket, while the main webpage 
 is hosted on an EC2 instance and served by Nginx. The backend is run out of another EC2 instance, 
 has an EBS drive mounted for the photos, and is connected to an AWS RDS instance for the database.
